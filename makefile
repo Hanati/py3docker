@@ -1,12 +1,13 @@
 image_name=py3data
+hub_namespace=natihd16
 
 build:
 	docker build -t ${image_name} .
 tag:
-	docker tag ${image_name} natihd16/${image_name}
+	docker tag ${image_name} ${hub_namespace}/${image_name}
 push:
-	docker push natihd16/${image_name}
+	docker push ${hub_namespace}/${image_name}
 pull:
-	docker pull natihd16/${image_name}
+	docker pull ${hub_namespace}/${image_name}
 runjob:
 	kubectl create -f test.yaml
